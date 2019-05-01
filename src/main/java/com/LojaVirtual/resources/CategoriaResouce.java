@@ -1,15 +1,28 @@
 package com.LojaVirtual.resources;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.LojaVirtual.domain.CategoriaProd;
 
 @RestController
 @RequestMapping(value ="/categorias")
 public class CategoriaResouce {
 
 	@RequestMapping(method = RequestMethod.GET)
-	public String lista() {
-		return "RESET esta funcionado ";
+	public List<CategoriaProd> lista() {
+		
+		CategoriaProd cat1 = new CategoriaProd(1, "maquiagem");
+		CategoriaProd cat2 = new CategoriaProd(2,"dermatologicos");
+		
+		List<CategoriaProd> lista = new ArrayList<>();
+		lista.add(cat1);
+		lista.add(cat2);
+		
+		return lista;
 	}
 }
